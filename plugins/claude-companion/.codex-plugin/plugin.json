@@ -1,6 +1,6 @@
 {
   "name": "claude-companion",
-  "version": "0.1.0+codex.20260609062450",
+  "version": "0.1.0+codex.20260609065908",
   "description": "Use Claude from Codex to review code or delegate tasks.",
   "author": {
     "name": "OpenAI"

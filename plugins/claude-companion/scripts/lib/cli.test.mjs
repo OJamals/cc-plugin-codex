@@ -78,4 +78,8 @@ test("task jobs appear as task in status output", (t) => {
   const status = parseJson(run(["status", "--json"]));
 
   assert.equal(status.latestFinished.kindLabel, "task");
+
+  const waitedStatus = parseJson(run(["status", status.latestFinished.id, "--wait", "--json"]));
+
+  assert.equal(waitedStatus.timeoutMs, 600000);
 });

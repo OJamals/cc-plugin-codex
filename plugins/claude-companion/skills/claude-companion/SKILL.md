@@ -70,7 +70,7 @@ Leave model and effort unset unless the user asks for them.
 For long-running work:
 
 1. Start with `--background`.
-2. Check with `status`.
+2. Check with `status`; use `status <job-id> --wait` for review jobs so Codex waits up to 10 minutes for completion.
 3. Read final output with `result`.
 4. Cancel active work with `cancel` if needed.
 

@@ -48,7 +48,7 @@ import {
 } from "./lib/render.mjs";
 
 const ROOT_DIR = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
-const DEFAULT_STATUS_WAIT_TIMEOUT_MS = 240000;
+const DEFAULT_STATUS_WAIT_TIMEOUT_MS = 600000;
 const DEFAULT_STATUS_POLL_INTERVAL_MS = 2000;
 
 function printUsage() {
