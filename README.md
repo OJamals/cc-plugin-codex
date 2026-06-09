@@ -1,8 +1,18 @@
 # Claude Companion
 
-Codex plugin that lets Codex call the local Claude Code CLI for code review, adversarial review, delegated tasks, background job status, result retrieval, and cancellation.
+Claude Companion is a Codex plugin that lets Codex call the local Claude Code CLI for cross-model coding, stronger code review, adversarial review, delegated tasks, background job status, result retrieval, and cancellation.
+
+Use it as a small cross-model coding appliance: Codex can stay in the main implementation loop while Claude independently reviews diffs, pressure-tests assumptions, investigates bugs, or handles delegated coding tasks. The result is a tighter review path, more diverse model judgment on risky changes, and a cleaner way to keep long-running Claude work visible from Codex.
 
 This repository is a standalone Codex marketplace for the `claude-companion` plugin.
+
+## Why Use It
+
+- Cross-model coding: ask Claude to inspect, investigate, or continue work without leaving Codex.
+- Better code review: run normal read-only reviews against staged, working-tree, or branch diffs.
+- Adversarial review: have Claude challenge implementation choices, look for regressions, and focus on specific risk areas.
+- Delegated tasks: send bounded investigation or implementation work to Claude, optionally in the background.
+- Job control: track status, fetch stored results, and cancel active background jobs.
 
 ## Requirements
 

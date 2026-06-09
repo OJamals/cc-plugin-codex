@@ -63,3 +63,30 @@ test("status reconciles a running job whose worker process is gone", (t) => {
   const result = resolveResultJob(cwd, job.id);
   assert.equal(result.job.status, "failed");
 });
+
+test("status normalizes legacy task labels to task", (t) => {
+  const cwd = createIsolatedWorkspace(t);
+
+  const job = {
+    id: "task-legacy-label",
+    kind: "task",
+    kindLabel: "rescue",
+    title: "Claude Task",
+    workspaceRoot: cwd,
+    jobClass: "task",
+    summary: "legacy label fixture",
+    createdAt: "2026-06-07T00:00:00.000Z",
+    startedAt: "2026-06-07T00:00:01.000Z",
+    completedAt: "2026-06-07T00:00:02.000Z",
+    status: "completed",
+    phase: "done",
+    pid: null
+  };
+
+  writeJobFile(cwd, job.id, job);
+  upsertJob(cwd, job);
+
+  const snapshot = buildSingleJobSnapshot(cwd, job.id);
+
+  assert.equal(snapshot.job.kindLabel, "task");
+});
