@@ -27,25 +27,24 @@ claude --version
 claude auth status
 ```
 
-## Install From GitHub
+## Installation
 
-After this repository is pushed to GitHub, add it as a Codex plugin marketplace:
+Install Claude Companion from the published Codex marketplace source:
 
 ```bash
-codex plugin marketplace add owner/claude-companion
+codex plugin marketplace add OJamals/claude-companion
 codex plugin add claude-companion@claude-companion
 ```
 
-Replace `owner/claude-companion` with the GitHub owner and repository name.
+Marketplace source: `https://github.com/OJamals/claude-companion`
 
-For a local checkout:
+Plugin selector: `claude-companion@claude-companion`
 
-```bash
-codex plugin marketplace add /path/to/claude-companion
-codex plugin add claude-companion@claude-companion
+Start a new Codex thread after installing so Codex loads the plugin. Then ask Claude Companion to run setup:
+
+```text
+Use Claude Companion setup.
 ```
-
-Start a new Codex thread after installing so Codex loads the plugin.
 
 ## Direct Script Use
 
