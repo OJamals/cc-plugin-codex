@@ -55,13 +55,13 @@ function printUsage() {
   console.log(
     [
       "Usage:",
-      "  node scripts/claude-companion.mjs setup [--json]",
-      "  node scripts/claude-companion.mjs review [--wait|--background] [--base <ref>] [--scope <auto|staged|working-tree|branch>]",
-      "  node scripts/claude-companion.mjs adversarial-review [--wait|--background] [--base <ref>] [--scope <auto|staged|working-tree|branch>] [focus text]",
-      "  node scripts/claude-companion.mjs task [--background] [--write] [--resume-last|--resume|--fresh] [--model <model>] [--effort <low|medium|high|xhigh|max>] [prompt]",
-      "  node scripts/claude-companion.mjs status [job-id] [--all] [--json]",
-      "  node scripts/claude-companion.mjs result [job-id] [--json]",
-      "  node scripts/claude-companion.mjs cancel [job-id] [--json]"
+      "  node scripts/claude-companion.mjs setup [--json] [--cwd <path>]",
+      "  node scripts/claude-companion.mjs review [--wait|--background] [--json] [--cwd <path>] [--base <ref>] [--scope <auto|staged|working-tree|branch>] [--model <model>] [--effort <low|medium|high|xhigh|max>]",
+      "  node scripts/claude-companion.mjs adversarial-review [--wait|--background] [--json] [--cwd <path>] [--base <ref>] [--scope <auto|staged|working-tree|branch>] [--model <model>] [--effort <low|medium|high|xhigh|max>] [focus text]",
+      "  node scripts/claude-companion.mjs task [--background] [--json] [--cwd <path>] [--write] [--resume-last|--resume|--fresh] [--model <model>] [--effort <low|medium|high|xhigh|max>] [--prompt-file <path>] [prompt]",
+      "  node scripts/claude-companion.mjs status [job-id] [--all] [--wait] [--json] [--cwd <path>]",
+      "  node scripts/claude-companion.mjs result [job-id] [--json] [--cwd <path>]",
+      "  node scripts/claude-companion.mjs cancel [job-id] [--json] [--cwd <path>]"
     ].join("\n")
   );
 }
