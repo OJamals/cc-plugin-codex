@@ -15,7 +15,7 @@ import {
   parseStructuredOutput,
   runClaudeTurn
 } from "./lib/claude.mjs";
-import { readStdinIfPiped } from "./lib/fs.mjs";
+import { readStdinIfPiped, resolveFileWithinDirectory } from "./lib/fs.mjs";
 import { collectReviewContext, ensureGitRepository, resolveReviewTarget } from "./lib/git.mjs";
 import { binaryAvailable, terminateProcessTree } from "./lib/process.mjs";
 import { loadPromptTemplate, interpolateTemplate } from "./lib/prompts.mjs";
@@ -350,17 +350,29 @@ function spawnDetachedWorker(cwd, jobId, workerCommand) {
 function enqueueBackgroundJob(cwd, job, request, workerCommand) {
   const { logFile } = createTrackedProgress(job);
   appendLogLine(logFile, "Queued for background execution.");
-  const child = spawnDetachedWorker(cwd, job.id, workerCommand);
   const queuedRecord = {
     ...job,
     status: "queued",
     phase: "queued",
-    pid: child.pid ?? null,
+    pid: null,
     logFile,
     request
   };
   writeJobFile(job.workspaceRoot, job.id, queuedRecord);
   upsertJob(job.workspaceRoot, queuedRecord);
+  const child = spawnDetachedWorker(cwd, job.id, workerCommand);
+  const current = readStoredJob(job.workspaceRoot, job.id);
+  if (current?.status === "queued") {
+    const queuedWithPid = {
+      ...current,
+      pid: child.pid ?? null
+    };
+    writeJobFile(job.workspaceRoot, job.id, queuedWithPid);
+    upsertJob(job.workspaceRoot, {
+      id: job.id,
+      pid: child.pid ?? null
+    });
+  }
   return {
     payload: {
       jobId: job.id,
@@ -380,7 +392,8 @@ async function handleReviewCommand(argv, config) {
   const { options, positionals } = parseCommandInput(argv, {
     valueOptions: ["base", "scope", "model", "effort", "cwd"],
     booleanOptions: ["json", "background", "wait"],
-    aliasMap: { m: "model" }
+    aliasMap: { m: "model" },
+    stopAtFirstPositional: true
   });
   const cwd = resolveCommandCwd(options);
   const workspaceRoot = resolveWorkspaceRoot(cwd);
@@ -430,7 +443,7 @@ async function handleAdversarialReview(argv) {
 
 function readTaskPrompt(cwd, options, positionals) {
   if (options["prompt-file"]) {
-    return fs.readFileSync(path.resolve(cwd, options["prompt-file"]), "utf8");
+    return fs.readFileSync(resolveFileWithinDirectory(cwd, options["prompt-file"], "prompt file"), "utf8");
   }
   return positionals.join(" ") || readStdinIfPiped();
 }
@@ -439,7 +452,8 @@ async function handleTask(argv) {
   const { options, positionals } = parseCommandInput(argv, {
     valueOptions: ["model", "effort", "cwd", "prompt-file"],
     booleanOptions: ["json", "write", "resume-last", "resume", "fresh", "background"],
-    aliasMap: { m: "model" }
+    aliasMap: { m: "model" },
+    stopAtFirstPositional: true
   });
   const cwd = resolveCommandCwd(options);
   const workspaceRoot = resolveWorkspaceRoot(cwd);

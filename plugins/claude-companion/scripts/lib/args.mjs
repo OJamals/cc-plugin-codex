@@ -2,9 +2,19 @@ export function parseArgs(argv, config = {}) {
   const valueOptions = new Set(config.valueOptions ?? []);
   const booleanOptions = new Set(config.booleanOptions ?? []);
   const aliasMap = config.aliasMap ?? {};
+  const stopAtFirstPositional = Boolean(config.stopAtFirstPositional);
   const options = {};
   const positionals = [];
   let passthrough = false;
+
+  function pushPositional(token, index) {
+    positionals.push(token);
+    if (stopAtFirstPositional) {
+      positionals.push(...argv.slice(index + 1));
+      return true;
+    }
+    return false;
+  }
 
   for (let index = 0; index < argv.length; index += 1) {
     const token = argv[index];
@@ -20,7 +30,9 @@ export function parseArgs(argv, config = {}) {
     }
 
     if (!token.startsWith("-") || token === "-") {
-      positionals.push(token);
+      if (pushPositional(token, index)) {
+        break;
+      }
       continue;
     }
 
@@ -45,7 +57,9 @@ export function parseArgs(argv, config = {}) {
         continue;
       }
 
-      positionals.push(token);
+      if (pushPositional(token, index)) {
+        break;
+      }
       continue;
     }
 
@@ -67,7 +81,9 @@ export function parseArgs(argv, config = {}) {
       continue;
     }
 
-    positionals.push(token);
+    if (pushPositional(token, index)) {
+      break;
+    }
   }
 
   return { options, positionals };

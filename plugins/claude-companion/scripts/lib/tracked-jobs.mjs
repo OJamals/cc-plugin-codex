@@ -4,6 +4,8 @@ import process from "node:process";
 import { readJobFile, resolveJobFile, resolveJobLogFile, upsertJob, writeJobFile } from "./state.mjs";
 
 export const SESSION_ID_ENV = "CLAUDE_COMPANION_SESSION_ID";
+let stderrWriteDisabled = false;
+let stderrErrorHandlerInstalled = false;
 
 export function nowIso() {
   return new Date().toISOString();
@@ -122,12 +124,22 @@ export function createProgressReporter({ stderr = false, logFile = null, onEvent
   return (eventOrMessage) => {
     const event = normalizeProgressEvent(eventOrMessage);
     const stderrMessage = event.stderrMessage ?? event.message;
-    if (stderr && stderrMessage) {
-      process.stderr.write(`[claude] ${stderrMessage}\n`);
-    }
     appendLogLine(logFile, event.message);
     appendLogBlock(logFile, event.logTitle, event.logBody);
     onEvent?.(event);
+    if (stderr && stderrMessage && !stderrWriteDisabled) {
+      if (!stderrErrorHandlerInstalled) {
+        stderrErrorHandlerInstalled = true;
+        process.stderr.on("error", () => {
+          stderrWriteDisabled = true;
+        });
+      }
+      try {
+        process.stderr.write(`[claude] ${stderrMessage}\n`);
+      } catch {
+        stderrWriteDisabled = true;
+      }
+    }
   };
 }
 
