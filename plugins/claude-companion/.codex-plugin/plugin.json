@@ -1,9 +1,10 @@
 {
   "name": "claude-companion",
-  "version": "0.1.0+codex.20260609073410",
+  "version": "0.1.0+codex.20260609080912",
   "description": "Use Claude from Codex to review code or delegate tasks.",
   "author": {
-    "name": "OpenAI"
+    "name": "OJamals",
+    "url": "https://github.com/OJamals"
   },
   "license": "Apache-2.0",
   "keywords": [
@@ -14,10 +15,10 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Claude Companion",
+    "displayName": "Claude",
     "shortDescription": "Run Claude reviews and delegated tasks from Codex",
     "longDescription": "Claude Companion lets Codex call the local Claude Code CLI for read-only reviews, repeat-until-pass adversarial reviews, delegated tasks, background jobs, status checks, result retrieval, and cancellation.",
-    "developerName": "OpenAI",
+    "developerName": "OJamals",
     "category": "Coding",
     "capabilities": [
       "Interactive",

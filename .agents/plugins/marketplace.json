@@ -1,7 +1,7 @@
 {
-  "name": "claude-companion",
+  "name": "ojamals",
   "interface": {
-    "displayName": "Claude Companion"
+    "displayName": "OJamals"
   },
   "plugins": [
     {

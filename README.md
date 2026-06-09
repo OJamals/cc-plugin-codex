@@ -33,7 +33,7 @@ Install from the published marketplace:
 
 ```bash
 codex plugin marketplace add OJamals/claude-companion
-codex plugin add claude-companion@claude-companion
+codex plugin add claude-companion@ojamals
 ```
 
 ### Smoke Test
@@ -75,8 +75,8 @@ Add `$claude-companion review` or `$claude-companion adversarial-review` near th
 ## Update
 
 ```bash
-codex plugin marketplace upgrade claude-companion
-codex plugin add claude-companion@claude-companion
+codex plugin marketplace upgrade ojamals
+codex plugin add claude-companion@ojamals
 ```
 
 Start a new Codex thread after updating.
