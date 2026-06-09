@@ -3,9 +3,9 @@ name: status
 description: Show running and recent Claude jobs for cc-plugin-codex.
 ---
 
-# cc:status
+# claude:status
 
-Use when the user invokes `$cc:status` or asks for Claude job status.
+Use when the user invokes `$claude:status` or asks for Claude job status.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" status <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs status <raw arguments>

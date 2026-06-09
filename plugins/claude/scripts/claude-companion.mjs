@@ -385,7 +385,7 @@ function enqueueBackgroundJob(cwd, job, request, workerCommand) {
 }
 
 function renderQueuedLaunch(payload) {
-  return `${payload.title} started in the background as ${payload.jobId}. Check $cc:status ${payload.jobId} for progress.\n`;
+  return `${payload.title} started in the background as ${payload.jobId}. Check $claude:status ${payload.jobId} for progress.\n`;
 }
 
 async function handleReviewCommand(argv, config) {

@@ -3,9 +3,9 @@ name: setup
 description: Check Node, npm, Claude Code, and Claude auth readiness for cc-plugin-codex.
 ---
 
-# cc:setup
+# claude:setup
 
-Use when the user invokes `$cc:setup` or asks whether cc-plugin-codex is ready.
+Use when the user invokes `$claude:setup` or asks whether cc-plugin-codex is ready.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" setup <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs setup <raw arguments>

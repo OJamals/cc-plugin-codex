@@ -3,9 +3,9 @@ name: rescue
 description: Delegate a Claude Code investigation or implementation task from Codex through cc-plugin-codex.
 ---
 
-# cc:rescue
+# claude:rescue
 
-Use when the user invokes `$cc:rescue`, asks Claude to investigate, asks Claude to try a fix, or asks Claude to continue previous delegated work.
+Use when the user invokes `$claude:rescue`, asks Claude to investigate, asks Claude to try a fix, or asks Claude to continue previous delegated work.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" rescue <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs rescue <raw arguments>

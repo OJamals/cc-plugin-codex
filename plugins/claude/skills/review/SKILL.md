@@ -3,9 +3,9 @@ name: review
 description: Run a normal read-only Claude Code review from Codex through cc-plugin-codex.
 ---
 
-# cc:review
+# claude:review
 
-Use when the user invokes `$cc:review` or asks for a normal Claude review.
+Use when the user invokes `$claude:review` or asks for a normal Claude review.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" review <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs review <raw arguments>

@@ -3,9 +3,9 @@ name: cancel
 description: Cancel an active Claude background job for cc-plugin-codex.
 ---
 
-# cc:cancel
+# claude:cancel
 
-Use when the user invokes `$cc:cancel` or asks to cancel Claude background work.
+Use when the user invokes `$claude:cancel` or asks to cancel Claude background work.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" cancel <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs cancel <raw arguments>

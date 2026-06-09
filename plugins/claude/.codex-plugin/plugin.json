@@ -1,6 +1,6 @@
 {
-  "name": "cc",
-  "version": "0.1.0+codex.20260609122558",
+  "name": "claude",
+  "version": "0.1.0+codex.20260609123937",
   "description": "Use Claude from Codex to review code or delegate rescue tasks.",
   "author": {
     "name": "OJamals",
@@ -25,9 +25,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Run $cc:adversarial-review, fix findings, and repeat until pass.",
+      "Run $claude:adversarial-review, fix findings, and repeat until pass.",
       "Ask Claude to investigate this bug.",
-      "Show $cc:status."
+      "Show $claude:status."
     ],
     "brandColor": "#D97706"
   }

@@ -3,9 +3,9 @@ name: result
 description: Show stored output from a finished Claude job for cc-plugin-codex.
 ---
 
-# cc:result
+# claude:result
 
-Use when the user invokes `$cc:result` or asks for final Claude job output.
+Use when the user invokes `$claude:result` or asks for final Claude job output.
 
 Run:
 
@@ -13,7 +13,7 @@ Run:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" result <raw arguments>
 ```
 
-If `CODEX_PLUGIN_ROOT` is not available, locate the installed `cc` plugin root and run:
+If `CODEX_PLUGIN_ROOT` is not available, locate the installed `claude` plugin root and run:
 
 ```bash
 node <plugin-root>/scripts/claude-companion.mjs result <raw arguments>
