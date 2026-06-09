@@ -1,6 +1,6 @@
-# cc-review-codex plugin for Codex
+# Claude Code plugin for Codex
 
-cc-review-codex is a Codex plugin that lets Codex call the local Claude Code CLI for cross-model coding help, code review, adversarial review, delegated rescue tasks, background job status, result retrieval, and cancellation. It mirrors OpenAI's codex-companion plugin, but for Codex.
+cc-review-codex is a plugin that lets Codex call local Claude Code CLI for cross-model coding help, code review, adversarial review, delegated rescue tasks, background job status, result retrieval, and cancellation. It mirrors OpenAI's codex-companion plugin, but for Codex.
 
 This plugin is for Codex users who want an easy way to bring Claude Code into the workflow they already have.
 
@@ -28,7 +28,7 @@ claude auth status
 Add the marketplace in Codex:
 
 ```bash
-codex plugin marketplace add OJamals/cc-review-codex
+codex plugin marketplace add OJamals/claude-companion --ref main
 ```
 
 Install the plugin:
@@ -256,7 +256,7 @@ This way you can review the Claude work or continue the work there.
 
 ### Do I need a separate Claude account for this plugin?
 
-If you are already signed into Claude Code on this machine, that account should work immediately here too. This plugin uses your local Claude CLI authentication.
+If you are already signed into Claude Code on the machine, that account should work immediately here too. This plugin uses your local Claude CLI authentication.
 
 If you only use Codex today and have not used Claude Code yet, install Claude Code, sign in with `claude auth login`, and run `$cc:setup` to check whether Claude is ready.
 
