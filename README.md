@@ -43,7 +43,7 @@ Start a new Codex thread after installing so Codex loads the plugin.
 Smoke test:
 
 ```text
-Use Claude Companion setup.
+$claude-companion setup
 ```
 
 ## Use
@@ -51,12 +51,14 @@ Use Claude Companion setup.
 Ask Codex for one of these:
 
 ```text
-Use Claude Companion adversarial-review on the current working tree.
-Use Claude Companion task --background to investigate why the failing test breaks.
-Use Claude Companion status.
-Use Claude Companion result.
-Use Claude Companion cancel.
+$claude-companion adversarial-review --scope working-tree
+$claude-companion task --background investigate why the failing test breaks
+$claude-companion status
+$claude-companion result
+$claude-companion cancel
 ```
+
+Add `$claude-companion review` or `$claude-companion adversarial-review` near the end of a development loop, before committing or opening a PR. This gives Codex a second-model review pass, with `adversarial-review` best for risky changes, regressions, and hidden edge cases.
 
 ## Commands
 
