@@ -1,0 +1,14 @@
+{
+  "name": "claude-companion-codex-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Codex plugin that lets Codex call the local Claude Code CLI.",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "test": "node --test plugins/claude-companion/scripts/lib/*.test.mjs"
+  }
+}
