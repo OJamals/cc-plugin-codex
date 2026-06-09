@@ -1,11 +1,11 @@
 ---
 name: setup
-description: Check Node, npm, Claude Code, and Claude auth readiness for cc-review-codex.
+description: Check Node, npm, Claude Code, and Claude auth readiness for cc-plugin-codex.
 ---
 
 # cc:setup
 
-Use when the user invokes `$cc:setup` or asks whether cc-review-codex is ready.
+Use when the user invokes `$cc:setup` or asks whether cc-plugin-codex is ready.
 
 Run:
 

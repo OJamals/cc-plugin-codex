@@ -1,6 +1,6 @@
 ---
 name: status
-description: Show running and recent Claude jobs for cc-review-codex.
+description: Show running and recent Claude jobs for cc-plugin-codex.
 ---
 
 # cc:status

@@ -1,6 +1,6 @@
 {
   "name": "cc",
-  "version": "0.1.0+codex.20260609115720",
+  "version": "0.1.0+codex.20260609122558",
   "description": "Use Claude from Codex to review code or delegate rescue tasks.",
   "author": {
     "name": "OJamals",
@@ -15,9 +15,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "cc-review-codex",
+    "displayName": "Claude",
     "shortDescription": "Run Claude reviews and rescue tasks from Codex",
-    "longDescription": "cc-review-codex lets Codex call the local Claude Code CLI for read-only reviews, repeat-until-pass adversarial reviews, rescue tasks, background jobs, status checks, result retrieval, and cancellation.",
+    "longDescription": "Claude lets Codex call the local Claude Code CLI for read-only reviews, repeat-until-pass adversarial reviews, rescue tasks, background jobs, status checks, result retrieval, and cancellation.",
     "developerName": "OJamals",
     "category": "Coding",
     "capabilities": [

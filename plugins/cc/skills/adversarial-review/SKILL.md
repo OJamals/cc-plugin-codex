@@ -1,6 +1,6 @@
 ---
 name: adversarial-review
-description: Run a steerable adversarial Claude Code review from Codex through cc-review-codex.
+description: Run a steerable adversarial Claude Code review from Codex through cc-plugin-codex.
 ---
 
 # cc:adversarial-review

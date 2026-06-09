@@ -1,6 +1,6 @@
 ---
 name: review
-description: Run a normal read-only Claude Code review from Codex through cc-review-codex.
+description: Run a normal read-only Claude Code review from Codex through cc-plugin-codex.
 ---
 
 # cc:review

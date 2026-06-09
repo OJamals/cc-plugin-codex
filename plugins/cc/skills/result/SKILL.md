@@ -1,6 +1,6 @@
 ---
 name: result
-description: Show stored output from a finished Claude job for cc-review-codex.
+description: Show stored output from a finished Claude job for cc-plugin-codex.
 ---
 
 # cc:result

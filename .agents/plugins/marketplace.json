@@ -1,7 +1,7 @@
 {
-  "name": "cc-review-codex",
+  "name": "cc-plugin-codex",
   "interface": {
-    "displayName": "cc-review-codex"
+    "displayName": "cc-plugin-codex"
   },
   "plugins": [
     {

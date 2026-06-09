@@ -1,6 +1,6 @@
 ---
 name: rescue
-description: Delegate a Claude Code investigation or implementation task from Codex through cc-review-codex.
+description: Delegate a Claude Code investigation or implementation task from Codex through cc-plugin-codex.
 ---
 
 # cc:rescue

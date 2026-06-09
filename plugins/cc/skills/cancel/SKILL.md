@@ -1,6 +1,6 @@
 ---
 name: cancel
-description: Cancel an active Claude background job for cc-review-codex.
+description: Cancel an active Claude background job for cc-plugin-codex.
 ---
 
 # cc:cancel

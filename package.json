@@ -1,5 +1,5 @@
 {
-  "name": "cc-review-codex",
+  "name": "cc-plugin-codex",
   "version": "0.1.0",
   "private": true,
   "type": "module",
