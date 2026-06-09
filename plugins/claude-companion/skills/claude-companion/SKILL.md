@@ -36,6 +36,7 @@ Return companion stdout verbatim. Do not summarize or rewrite Claude output unle
 ## Review Use
 
 Use `review` for normal read-only review of current work. Use `adversarial-review` when the user wants Claude to challenge the implementation, look for blockers, or pressure-test a change.
+For development workflow review, prefer `adversarial-review`, fix any findings, then repeat adversarial review until it passes or reports no actionable findings. Treat this repeat-until-pass loop as the recommended pre-commit or pre-PR review gate.
 
 Examples:
 
@@ -43,6 +44,7 @@ Examples:
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" review --background
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" adversarial-review --scope staged --background focus on staged session changes only
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" adversarial-review --base main --background focus on auth and data loss
+node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" adversarial-review --scope working-tree --background repeat after fixes until pass
 node "${CODEX_PLUGIN_ROOT}/scripts/claude-companion.mjs" result
 ```
 
