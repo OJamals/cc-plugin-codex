@@ -1,6 +1,6 @@
 # Claude Companion
 
-Claude Companion is a Codex plugin that lets Codex call the local Claude Code CLI for cross-model coding help, code review, adversarial review, delegated tasks, background job status, result retrieval, and cancellation.
+Claude Companion is a Codex plugin that lets Codex call the local Claude Code CLI for cross-model coding help, code review, adversarial review, delegated tasks, background job status, result retrieval, and cancellation. It is a mirror of OpenAI's codex-companion plugin, but for Codex. 
 
 Use it when you want a second model in the loop without leaving Codex. `adversarial-review` is the recommended review mode because it is stricter than `review` and better at catching regressions, weak assumptions, risky diffs, and missed edge cases. `review` remains available as a lighter read-only baseline.
 
