@@ -29,22 +29,63 @@ claude auth status
 
 ## Installation
 
-Install Claude Companion from the published Codex marketplace source:
+### Quick Install
+
+Add the published marketplace source:
 
 ```bash
 codex plugin marketplace add OJamals/claude-companion
+```
+
+Install the plugin from that marketplace:
+
+```bash
 codex plugin add claude-companion@claude-companion
 ```
 
-Marketplace source: `https://github.com/OJamals/claude-companion`
-
-Plugin selector: `claude-companion@claude-companion`
-
-Start a new Codex thread after installing so Codex loads the plugin. Then ask Claude Companion to run setup:
+Start a new Codex thread so Codex loads the plugin's skills. In the new thread, run a setup smoke test:
 
 ```text
 Use Claude Companion setup.
 ```
+
+### Verify Installation
+
+Confirm the marketplace and plugin are visible:
+
+```bash
+codex plugin marketplace list
+codex plugin list
+```
+
+Expected plugin selector:
+
+```text
+claude-companion@claude-companion
+```
+
+Expected marketplace source:
+
+```text
+https://github.com/OJamals/claude-companion
+```
+
+### Update Later
+
+Refresh the GitHub-backed marketplace and reinstall the plugin:
+
+```bash
+codex plugin marketplace upgrade claude-companion
+codex plugin add claude-companion@claude-companion
+```
+
+Start a new Codex thread after updating.
+
+### If Setup Fails
+
+- If Claude Code is missing, install and authenticate Claude Code first.
+- If Codex does not recognize the plugin, start a new Codex thread after installing.
+- If the marketplace command fails, verify GitHub access to `https://github.com/OJamals/claude-companion`.
 
 ## Direct Script Use
 
