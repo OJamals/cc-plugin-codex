@@ -1,14 +1,14 @@
 {
-  "name": "ojamals",
+  "name": "cc-review-codex",
   "interface": {
-    "displayName": "OJamals"
+    "displayName": "cc-review-codex"
   },
   "plugins": [
     {
-      "name": "claude-companion",
+      "name": "cc",
       "source": {
         "source": "local",
-        "path": "./plugins/claude-companion"
+        "path": "./plugins/cc"
       },
       "policy": {
         "installation": "AVAILABLE",

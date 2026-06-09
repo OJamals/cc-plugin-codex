@@ -58,7 +58,7 @@ function printUsage() {
       "  node scripts/claude-companion.mjs setup [--json] [--cwd <path>]",
       "  node scripts/claude-companion.mjs review [--wait|--background] [--json] [--cwd <path>] [--base <ref>] [--scope <auto|staged|working-tree|branch>] [--model <model>] [--effort <low|medium|high|xhigh|max>]",
       "  node scripts/claude-companion.mjs adversarial-review [--wait|--background] [--json] [--cwd <path>] [--base <ref>] [--scope <auto|staged|working-tree|branch>] [--model <model>] [--effort <low|medium|high|xhigh|max>] [focus text]",
-      "  node scripts/claude-companion.mjs task [--background] [--json] [--cwd <path>] [--write] [--resume-last|--resume|--fresh] [--model <model>] [--effort <low|medium|high|xhigh|max>] [--prompt-file <path>] [prompt]",
+      "  node scripts/claude-companion.mjs rescue [--background] [--json] [--cwd <path>] [--write] [--resume-last|--resume|--fresh] [--model <model>] [--effort <low|medium|high|xhigh|max>] [--prompt-file <path>] [prompt]",
       "  node scripts/claude-companion.mjs status [job-id] [--all] [--wait] [--json] [--cwd <path>]",
       "  node scripts/claude-companion.mjs result [job-id] [--json] [--cwd <path>]",
       "  node scripts/claude-companion.mjs cancel [job-id] [--json] [--cwd <path>]"
@@ -293,7 +293,7 @@ function getJobKindLabel(kind, jobClass) {
   if (kind === "adversarial-review") {
     return "adversarial-review";
   }
-  return jobClass === "review" ? "review" : "task";
+  return jobClass === "review" ? "review" : "rescue";
 }
 
 function createCompanionJob({ prefix, kind, title, workspaceRoot, jobClass, summary, write = false }) {
@@ -385,7 +385,7 @@ function enqueueBackgroundJob(cwd, job, request, workerCommand) {
 }
 
 function renderQueuedLaunch(payload) {
-  return `${payload.title} started in the background as ${payload.jobId}. Check /claude:status ${payload.jobId} for progress.\n`;
+  return `${payload.title} started in the background as ${payload.jobId}. Check $cc:status ${payload.jobId} for progress.\n`;
 }
 
 async function handleReviewCommand(argv, config) {
@@ -598,6 +598,7 @@ async function main() {
       return await handleReview(argv);
     case "adversarial-review":
       return await handleAdversarialReview(argv);
+    case "rescue":
     case "task":
       return await handleTask(argv);
     case "status":

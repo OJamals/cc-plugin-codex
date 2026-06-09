@@ -47,7 +47,7 @@ function parseJson(result) {
   return JSON.parse(result.stdout);
 }
 
-test("task jobs appear as task in status output", (t) => {
+test("rescue jobs appear as rescue in status output", (t) => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "claude-companion-cli-test-"));
   const bin = path.join(root, "bin");
   const pluginData = path.join(root, "plugin-data");
@@ -74,10 +74,10 @@ test("task jobs appear as task in status output", (t) => {
       encoding: "utf8"
     });
 
-  parseJson(run(["task", "--json", "classify this job"]));
+  parseJson(run(["rescue", "--json", "classify this job"]));
   const status = parseJson(run(["status", "--json"]));
 
-  assert.equal(status.latestFinished.kindLabel, "task");
+  assert.equal(status.latestFinished.kindLabel, "rescue");
 
   const waitedStatus = parseJson(run(["status", status.latestFinished.id, "--wait", "--json"]));
 

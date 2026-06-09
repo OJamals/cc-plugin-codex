@@ -64,7 +64,7 @@ test("status reconciles a running job whose worker process is gone", (t) => {
   assert.equal(result.job.status, "failed");
 });
 
-test("status normalizes legacy task labels to task", (t) => {
+test("status normalizes legacy task labels to rescue", (t) => {
   const cwd = createIsolatedWorkspace(t);
 
   const job = {
@@ -88,5 +88,5 @@ test("status normalizes legacy task labels to task", (t) => {
 
   const snapshot = buildSingleJobSnapshot(cwd, job.id);
 
-  assert.equal(snapshot.job.kindLabel, "task");
+  assert.equal(snapshot.job.kindLabel, "rescue");
 });
