@@ -4,9 +4,17 @@ Claude Companion is the sister plugin to OpenAI's official `codex-companion` app
 
 For code review, prefer `adversarial-review`. It is stricter than `review` and more useful for catching regressions, weak assumptions, risky diffs, and missed edge cases. The `review` command remains available as a lighter read-only baseline review.
 
-## Install
+## Features
 
-Requirements:
+- Cross-model coding: ask Claude to inspect, investigate, or continue work without leaving Codex.
+- Better code review: run normal read-only reviews against staged, working-tree, or branch diffs.
+- Adversarial review: have Claude challenge implementation choices, look for regressions, and focus on specific risk areas.
+- Delegated tasks: send bounded investigation or implementation work to Claude, optionally in the background.
+- Job control: track status, fetch stored results, and cancel active background jobs.
+
+## Installation
+
+### Requirements
 
 - Codex CLI with plugin support.
 - Node.js 18.18 or newer.
@@ -19,12 +27,16 @@ claude --version
 claude auth status
 ```
 
+### Install From Marketplace
+
 Install from the published marketplace:
 
 ```bash
 codex plugin marketplace add OJamals/claude-companion
 codex plugin add claude-companion@claude-companion
 ```
+
+### Smoke Test
 
 Start a new Codex thread after installing so Codex loads the plugin.
 
